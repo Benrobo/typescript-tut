@@ -55,6 +55,32 @@ class Person2 implements P22{
 
 const p22 = new Person2("benaiah")
 
-p22.setName() // calling a private method would lead to an error 
+// p22.setName() // calling a private method would lead to an error 
 
-console.log(p22.getName("ben22"));
+// console.log(p22.getName("ben22"));
+
+
+class Point{
+    constructor(_x?: number, _y?:number){
+        // ..
+    }
+
+    draw(){
+        console.log(`x: ${this.x}, y: ${this.y}`)
+    }
+
+    get x(){
+        return this.x
+    }
+
+    set x(val){
+        this.x = val
+    }
+}
+
+
+const d = new Point(1, 2)
+// get X
+d.X
+// set X
+d.X = 35 // x is now 36
