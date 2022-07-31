@@ -1,40 +1,45 @@
 
 
-const ADMIN = 0;
-const AUTHOR = 1;
+// Adding a return type to a function.
+// By default, typescript infer the return type of a function based on the returned value
 
+// for eg
 
-const info = {
-    name: "ben",
-    age: 20,
-    hobbies: ["Coding"],
-    role: ADMIN
+function add(n1: number, n2: number){
+    return n1 + n2;
 }
 
-// setting info.role key that way, is much easier but aslo has a downsides. this is bcos, sometimes our program can assign a number which isn't valid. since ADMIN=0 and AUTHOR=1, we can assign invalid number to role like this. 
+// in the above function, the return type of that function is determine by the value returned.
 
-info.role = 3 // Ofcourse, 3 is a valid number type but isnt valid interms with the logic we want.
+// We can also explicitly set the return type of a fuction.
 
-// This is when enum type comes into play.
-
-enum Role {
-    ADMIN,
-    AUTHOR
+// return type is set to number
+function add2(n1: number, n2: number) : number {
+    return n1+n2;
 }
 
-const info2 = {
-    name: "ben",
-    age: 20,
-    hobbies: ["Coding"],
-    role: Role.ADMIN
+// return type is now string
+function add3(n1: string, n2: string) : string {
+    return n1+n2;
 }
 
-if (info2.role === 3) {
-    // This would result in an error cause 3 isnt define within the enum types.
-    console.log("user has no role.")
-}
+let resultData;
+resultData = add2;
 
-if (info2.role === 1) {
-    // This would run successfully since we have an enum type whose value is 1 ( AUTHOR )
-    console.log("user is author")
-}
+console.log(resultData(1,2)) // this would be 3.
+
+// But what if we reassigned the resultData variable from pointer of a function to a value whose type is now 'number'.
+
+// resultData = 4
+
+console.log(resultData(1,2)) // This would thrown an error in compile time, cause resultData is no longer pointing to a function but a value which has a 'number' type.
+
+// to solve this, we need to explicitly set the type of a variable.
+
+let resultData2 : Function
+
+resultData2 = add2
+
+// resultData2 = 4 // This should thrown an error now.
+
+console.log(resultData2(4,5))
