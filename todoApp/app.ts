@@ -7,9 +7,10 @@ const todoInp = document.querySelector(".input")! as HTMLInputElement
 const output = $(".output")
 
 
-const handleTodo = (e) : void =>{
+const handleTodo = (e: any) : void =>{
     e.preventDefault()
-
+    console.log(typeof e);
+    
     let value = todoInp?.value;
     if (value === "") return
     
