@@ -43,3 +43,23 @@ resultData2 = add2
 // resultData2 = 4 // This should thrown an error now.
 
 console.log(resultData2(4,5))
+
+
+type printFuncType = (a: string) => void
+
+function greeter(fn: printFuncType){
+    fn("hello world")
+}
+
+function printConsole(b: string){
+    console.log(b)
+    return "welcome"
+}
+
+greeter(printConsole)
+
+const res = printConsole
+
+console.log(res("just a test"))
+
+

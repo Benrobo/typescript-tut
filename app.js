@@ -17,11 +17,21 @@ function add3(n1, n2) {
 var resultData;
 resultData = add2;
 console.log(resultData(1, 2)); // this would be 3.
-// But what if we reassigned the resultData variable from pointer of a function to a value.
+// But what if we reassigned the resultData variable from pointer of a function to a value whose type is now 'number'.
 // resultData = 4
-console.log(resultData(1, 2)); // This would thrown an error in compile time, cause resultData is no longer pointing to a function but a value.
+console.log(resultData(1, 2)); // This would thrown an error in compile time, cause resultData is no longer pointing to a function but a value which has a 'number' type.
 // to solve this, we need to explicitly set the type of a variable.
 var resultData2;
 resultData2 = add2;
 // resultData2 = 4 // This should thrown an error now.
 console.log(resultData2(4, 5));
+function greeter(fn) {
+    fn("hello world");
+}
+function printConsole(b) {
+    console.log(b);
+    return "welcome";
+}
+greeter(printConsole);
+var res = printConsole;
+console.log(res("just a test"));
