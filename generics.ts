@@ -4,6 +4,7 @@
 
 type FT = number[]
 
+
 function last(arr: FT){
     return arr[arr.length -1]
 }
