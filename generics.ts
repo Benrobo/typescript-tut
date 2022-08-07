@@ -35,3 +35,9 @@ const l3 = last2([1,2,3,4]) // This should work without any linting erros
 const l4 = last2(["a", "b", "c"]) // This should work without any linting errors.
 
 
+function genHash<Type>(pwd: Type[] ) {
+    return [pwd.length]
+}
+
+const test = genHash(["123"])
+
